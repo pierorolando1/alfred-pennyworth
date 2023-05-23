@@ -1,6 +1,6 @@
-# alfred
+# Alfred Pennyworth
 
-A new Flutter project.
+A personal assistant to boost your productivity (second brain too).
 
 ## Getting Started
 
