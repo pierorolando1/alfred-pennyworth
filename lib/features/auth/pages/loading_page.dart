@@ -20,10 +20,10 @@ class _LoadingPageState extends State<LoadingPage> {
   }
 
   validator() async {
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 2));
     //TODO validate user
     if (mounted) {
-      context.go("/home");
+      context.go("/app");
     }
   }
 
