@@ -17,7 +17,7 @@ class _RedirectState extends State<Redirect> {
       validator();
     }
   }
-
+  /// Validates if has an wakeuptime setted
   validator() async {
     await Future.delayed(const Duration(seconds: 1));
     if (mounted) {
