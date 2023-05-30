@@ -1,16 +1,17 @@
-import 'package:flutter/cupertino.dart';
+import 'package:alfred/features/focuslevel/domain/providers/providers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Redirect extends StatefulWidget {
+class Redirect extends ConsumerStatefulWidget {
   const Redirect({super.key});
 
   @override
-  State<Redirect> createState() => _RedirectState();
+  createState() => _RedirectState();
 }
 
-class _RedirectState extends State<Redirect> {
+class _RedirectState extends ConsumerState<Redirect> {
   bool hasWakeUpTime = true;
 
   @override
@@ -33,7 +34,12 @@ class _RedirectState extends State<Redirect> {
 
     if (wus != null) {
       if (mounted) {
-        //TODO: set global wakeuptime
+        final wakeUpTime = ref.read(wakeUpTimeProvider.notifier);
+        wakeUpTime.state = TimeOfDay(
+          hour: int.parse(wus.split(":")[0]),
+          minute: int.parse(wus.split(":")[1])
+        );
+        
         context.go("/app/home");
       }
       return;
@@ -81,6 +87,9 @@ class _RedirectState extends State<Redirect> {
 
         if (mounted) {
           prefs.setString(formattedDate, value.format(context));
+          final wakeUpTime = ref.read(wakeUpTimeProvider.notifier);
+          print(value.format(context));
+          wakeUpTime.state = value;
           context.go("/app/home");
         }
       }
