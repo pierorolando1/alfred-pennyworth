@@ -1,13 +1,14 @@
 import 'package:alfred/config/router/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     systemNavigationBarColor: Colors.transparent, // navigation bar color
     statusBarColor: Colors.transparent, // status bar color
   ));
-  runApp(const AlfredApp());
+  runApp(const ProviderScope(child: AlfredApp()));
 }
 
 class AlfredApp extends StatelessWidget {
@@ -19,11 +20,13 @@ class AlfredApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Alfred Pennnyworth',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 80, 133, 164), brightness: Brightness.dark),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 80, 133, 164),
+          brightness: Brightness.dark,
+        ),
         useMaterial3: true,
       ),
-      
-      routerConfig: mainRouter, 
+      routerConfig: mainRouter,
     );
   }
 }
