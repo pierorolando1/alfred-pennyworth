@@ -9,9 +9,10 @@ import 'package:alfred/utils/widgets/redirect.dart';
 
 // [ [route, icon, label] ]
 const List<List<dynamic>> navigations = [
-  ["/app/home", Icons.home_filled, "Home"],
-  ["/app/tasks", Icons.task_alt_rounded, "Tasks"],
-  ["/app/notes", Icons.notes_rounded, "Notes"],
+  ["/app/home", Icons.home_filled, ""],
+  ["/app/tasks", Icons.task_alt_rounded, ""],
+  ["/app/notes", Icons.notes_rounded, ""],
+  ["/app/toogle", Icons.toggle_on_outlined, ""],
 ];
 
 final mainRouter = GoRouter(
