@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:alfred/features/focuslevel/main.dart';
+import 'package:alfred/features/focuslevel/domain/main.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 

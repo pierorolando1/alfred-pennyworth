@@ -1,10 +1,11 @@
-import 'package:alfred/features/auth/pages/loading_page.dart';
-import 'package:alfred/features/auth/pages/login_page.dart';
-import 'package:alfred/features/tasks/pages/tasks_page.dart';
-import 'package:alfred/pages/home_page.dart';
-import 'package:alfred/shared/widgets/redirect.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import 'package:alfred/features/auth/pages/loading_page.dart';
+import 'package:alfred/features/auth/pages/login_page.dart';
+import 'package:alfred/features/tasks/presentation/pages/tasks_page.dart';
+import 'package:alfred/pages/home_page.dart';
+import 'package:alfred/utils/widgets/redirect.dart';
 
 final mainRouter = GoRouter(
   routes: [

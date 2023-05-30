@@ -1,4 +1,4 @@
-import 'package:alfred/routes/routes.dart';
+import 'package:alfred/config/router/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

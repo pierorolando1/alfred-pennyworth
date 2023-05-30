@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:alfred/features/focuslevel/widgets/focus_levels.dart';
+import 'package:alfred/features/focuslevel/presentation/widgets/focus_levels.dart';
 
 final today = DateTime.now();
 
