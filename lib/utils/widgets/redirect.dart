@@ -37,7 +37,7 @@ class _RedirectState extends ConsumerState<Redirect> {
         final wakeUpTime = ref.read(wakeUpTimeProvider.notifier);
         wakeUpTime.state = TimeOfDay(
           hour: int.parse(wus.split(":")[0]),
-          minute: int.parse(wus.split(":")[1])
+          minute: int.parse(wus.split(":")[1].replaceAll(" AM", ""))
         );
         
         context.go("/app/home");
@@ -68,7 +68,7 @@ class _RedirectState extends ConsumerState<Redirect> {
 
   _selectTime(BuildContext context) {
     Future<TimeOfDay?> selectedTime = showTimePicker(
-      initialTime: const TimeOfDay(hour: 6, minute: 30),
+      initialTime: ref.read(wakeUpTimeProvider),
       context: context,
       builder: (BuildContext context, Widget? child) {
         return MediaQuery(

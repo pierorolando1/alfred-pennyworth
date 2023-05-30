@@ -1,13 +1,16 @@
+import 'package:alfred/features/focuslevel/domain/helpers.dart';
+import 'package:alfred/features/focuslevel/domain/providers/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:alfred/features/focuslevel/presentation/widgets/focus_levels.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final today = DateTime.now();
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: Center(
         child: Column(
@@ -22,8 +25,9 @@ class HomePage extends StatelessWidget {
               ),
             ),
             FocusLevels(
-              //today at 7:20 am
-              wakeUpTime: DateTime(today.year, today.month, today.day, 6, 10),
+              wakeUpTime: timeOfDayToDate(
+                ref.watch(wakeUpTimeProvider),
+              ),
             ),
           ],
         ),
